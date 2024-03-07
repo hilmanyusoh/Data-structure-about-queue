@@ -102,11 +102,11 @@ function leaveQueue() {
 
 function viewQueue() {
     if (queue.length > 0) {
-        var queueList = "<h2>Current Bakery Queue:</h2><ol>"; // Change <ul> to <ol> for numbered list
-        queue.forEach(function(person, index) {
-            queueList += "<li>" + (index + 1) + ". " + person.name + " - Order: " + person.order + "</li>";
+        var queueList = "<h2>Current Bakery Queue:</h2><ul>";
+        queue.forEach(function(person,index) {
+            queueList += "<li>"+ (index + 1)+"."+person.name + " - Order: " + person.order +"</li>";
         });
-        queueList += "</ol>";
+        queueList += "</ul>";
         document.getElementById("queue").innerHTML = queueList;
     } else {
         alert("Queue is empty.");
