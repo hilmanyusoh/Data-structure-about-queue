@@ -1,13 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแรกเว็บไซต์</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery Queue Simulation</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form input[type="text"], form input[type="number"] {
+    width: calc(50% - 5px);
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#queue {
+    list-style-type: none;
+    padding: 0;
+}
+
+#queue li {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+</style>
 </head>
 <body>
-    <h1 style="color: blue;">Demo studio</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia cumque eius praesentium sint perferendis omnis eaque tenetur doloremque delectus odio, officia officiis dicta beatae amet illo mollitia architecto, vero rem.</p>
-    
+
+<div class="container">
+    <h1>Bakery Queue Simulation</h1>
+    <form id="queueForm">
+        <label for="name">Person's Name:</label>
+        <input type="text" id="name" required>
+        <label for="order">Person's Order:</label>
+        <input type="text" id="order" required>
+        <input type="submit" value="Arrive (Add person to queue)">
+    </form>
+    <button onclick="leaveQueue()">Leave (Remove person from queue)</button>
+    <button onclick="viewQueue()">View Queue</button>
+    <ul id="queue"></ul>
+</div>
+
+<script>
+var queue = [];
+
+function addToQueue() {
+    var name = document.getElementById("name").value;
+    var order = document.getElementById("order").value;
+    if (name && order) {
+        var person = { name: name, order: order };
+        queue.push(person);
+        document.getElementById("queue").innerHTML += "<li>" + name + " - Order: " + order + "</li>";
+        document.getElementById("name").value = "";
+        document.getElementById("order").value = "";
+    } else {
+        alert("Please enter both name and order.");
+    }
+    return false;
+}
+
+function leaveQueue() {
+    if (queue.length > 0) {
+        var leavingPerson = queue.shift();
+        alert(leavingPerson.name + " with order '" + leavingPerson.order + "' has left the queue.");
+        updateQueueDisplay();
+    } else {
+        alert("Queue is empty.");
+    }
+}
+
+function viewQueue() {
+    if (queue.length > 0) {
+        var queueList = "<h2>Current Bakery Queue:</h2><ul>";
+        queue.forEach(function(person) {
+            queueList += "<li>" + person.name + " - Order: " + person.order + "</li>";
+        });
+        queueList += "</ul>";
+        document.getElementById("queue").innerHTML = queueList;
+    } else {
+        alert("Queue is empty.");
+    }
+}
+
+function updateQueueDisplay() {
+    var queueList = "";
+    queue.forEach(function(person) {
+        queueList += "<li>" + person.name + " - Order: " + person.order + "</li>";
+    });
+    document.getElementById("queue").innerHTML = queueList;
+}
+
+document.getElementById("queueForm").onsubmit = addToQueue;
+</script>
+
 </body>
 </html>
