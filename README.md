@@ -1,2 +1,4 @@
 # Data structure of queue about shopping queue
 ## Overview
+### Purpose
+To use in queuing to buy various things You can see who came first or last. It will solve the problem of people overtaking the queue or skipping other queues.
