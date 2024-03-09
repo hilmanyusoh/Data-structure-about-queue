@@ -8,3 +8,8 @@ To use in queuing to buy various things You can see who came first or last. It w
 * VS Code
 * Python v3
 * Django
+
+### Installation Requirements
+
+* Python v3
+* Django
