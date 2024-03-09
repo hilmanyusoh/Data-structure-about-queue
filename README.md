@@ -1,2 +1,2 @@
-## Data structure of queue about shopping queue
-# Overview
+# Data structure of queue about shopping queue
+## Overview
