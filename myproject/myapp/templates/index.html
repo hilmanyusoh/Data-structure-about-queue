@@ -54,23 +54,38 @@ form input[type="submit"] {
     background-color: #f2f2f2;
     border-radius: 5px;
 }
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+.container {
+    width: 80%; /* Adjust the width as needed */
+    border: 2px solid black; /* Add border style */
+    padding: 20px; /* Add padding to container */
+    text-align: center; /* This will center the content inside the container */
+}
 </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Shopping queue</h1>
-    <form id="queueForm">
-        <label for="name">Person's Name:</label><br>
-        <input type="text" id="name" required><br>
-        <label for="order">Person's Order:</label><br>
-        <input type="text" id="order" required><br>
-        <input type="submit" value="Arrive (Add person to queue)">
-    </form>
-    <button onclick="leaveQueue()">Leave (Remove person from queue)</button>
-    <button onclick="viewQueue()">View Queue</button>
-    <ul id="queue"></ul>
-</div>
+    <div class="frame">
+        <div class="container">
+            <h1>Shopping queue</h1>
+            <form id="queueForm">
+                <label for="name">Person's Name:</label><br>
+                <input type="text" id="name" required><br>
+                <label for="order">Person's Order:</label><br>
+                <input type="text" id="order" required><br>
+                <input type="submit" value="Arrive (Add person to queue)">
+            </form>
+            <button onclick="leaveQueue()">Leave (Remove person from queue)</button>
+            <button onclick="viewQueue()">View Queue</button>
+            <ul id="queue"></ul>
+        </div>
+    </div>
 
 <script>
 var queue = [];
