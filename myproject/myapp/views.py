@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from .models import Queue
 
 
-def index(reques):
-    return render(reques,"index.html")
+def index(request):
+    return render(request,"index.html")
 
 def add_person_to_queue(request):
     if request.method == 'POST':
