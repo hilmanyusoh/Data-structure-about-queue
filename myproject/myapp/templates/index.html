@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopping queue</title>
+<title>All queues</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -59,7 +59,7 @@ form input[type="submit"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height as needed */
+    height: 80vh; /* Adjust the height as needed */
 }
 .container {
     width: 80%; /* Adjust the width as needed */
@@ -67,13 +67,26 @@ form input[type="submit"] {
     padding: 20px; /* Add padding to container */
     text-align: center; /* This will center the content inside the container */
 }
+
+
+    body {
+        background-image: url('https://cdn.wallpapersafari.com/49/73/mcEn0H.jpg'); /* Replace 'https://example.com/image.jpg' with the direct link to your Google image */
+        background-size: cover; /* Adjusts the background image size to cover the entire body */
+        background-position: center; /* Centers the background image */
+        height: 100vh; /* Sets the height of the body to 100% of the viewport height */
+        margin: 0; /* Removes default margin */
+        padding: 0; /* Removes default padding */
+    }
+
+    /* Add additional CSS styles for your content here */
+
 </style>
 </head>
 <body>
 
     <div class="frame">
         <div class="container">
-            <h1>Shopping queue</h1>
+            <h1>queue</h1>
             <form id="queueForm">
                 <label for="name">Person's Name:</label><br>
                 <input type="text" id="name" required><br>
