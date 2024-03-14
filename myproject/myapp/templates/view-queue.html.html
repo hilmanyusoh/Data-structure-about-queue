@@ -1,0 +1,79 @@
+<!-- view-queue.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Queue</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+#queue-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#queue-list li {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+#queue-list li:first-child {
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Current Bakery Queue</h1>
+        <ul id="queue-list"></ul>
+    </div>
+
+    <script>
+        // Function to fetch and display the queue
+        function fetchAndDisplayQueue() {
+            // Simulate fetching the queue data from server
+            // In a real application, you would make an AJAX request to fetch the queue data
+            var queueData = [
+                { name: "John Doe", order: "Chocolate Cake" },
+                { name: "Jane Smith", order: "Vanilla Cupcake" },
+                { name: "Michael Johnson", order: "Apple Pie" }
+            ];
+
+            var queueList = document.getElementById("queue-list");
+            queueList.innerHTML = ""; // Clear existing list
+
+            // Display queue data in list
+            queueData.forEach(function(person) {
+                var listItem = document.createElement("li");
+                listItem.textContent = person.name + " - Order: " + person.order;
+                queueList.appendChild(listItem);
+            });
+        }
+
+        // Call the function to fetch and display the queue when the page loads
+        window.onload = fetchAndDisplayQueue;
+    </script>
+</body>
+</html>
