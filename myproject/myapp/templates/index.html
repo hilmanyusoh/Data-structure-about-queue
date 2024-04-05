@@ -86,7 +86,7 @@ form input[type="submit"] {
 
     <div class="frame">
         <div class="container">
-            <h1>queue</h1>
+            <h1>Queue</h1>
             <form id="queueForm">
                 <label for="name">Person's Name:</label><br>
                 <input type="text" id="name" required><br>
@@ -95,7 +95,7 @@ form input[type="submit"] {
                 <input type="submit" value="Arrive (Add person to queue)">
             </form>
             <button onclick="leaveQueue()">Leave (Remove person from queue)</button>
-            <a href="view-queue.html">View Queue</a> <!-- Replaced the button with a link -->
+            <button href="#" onclick="viewQueue()">View Queue</button>
             <ul id="queue"></ul>
         </div>
     </div>
@@ -109,7 +109,7 @@ function addToQueue() {
     if (name && order) {
         var person = { name: name, order: order };
         queue.push(person);
-        document.getElementById("queue").innerHTML += "<li>" + name + " - Order: " + order + "</li>";
+        updateQueueDisplay();
         document.getElementById("name").value = "";
         document.getElementById("order").value = "";
     } else {
